@@ -78,10 +78,10 @@ public class WallRunning : MonoBehaviour
         upwardsRunning = Input.GetKey(upwardsRunKey);
         downwardsRunning = Input.GetKey(downwardsRunKey);
 
-        if((wallLeft || wallRight) &&verticalInput > 0 && CheckForGround() && !exitingWall ) {
+        if((wallLeft || wallRight) && verticalInput > 0 && CheckForGround() && !exitingWall ) {
             if (!cm.wallRunning)
                 StartWallRun();
-
+                Debug.Log("StartWallRun");
             if (wallRunTimer > 0)
                 wallRunTimer -= Time.deltaTime;
 
@@ -97,8 +97,8 @@ public class WallRunning : MonoBehaviour
 
             if (cm.wallRunning)
                 StopWallRun();
-
-            if(exitWallTimer > 0)
+                Debug.Log("StopWallRun");
+            if (exitWallTimer > 0)
                 exitWallTimer -= Time.deltaTime;
 
             if (exitWallTimer <= 0)
@@ -133,13 +133,13 @@ public class WallRunning : MonoBehaviour
             wallForward = -wallForward;
 
         rb.AddForce(wallForward * wallRunForce, ForceMode.Force);
-
+        Debug.Log("WallForce");
         if (upwardsRunning)
             rb.velocity = new Vector3(rb.velocity.x, wallClimbSpeed, rb.velocity.z);
         if (downwardsRunning)
             rb.velocity = new Vector3(rb.velocity.x, -wallClimbSpeed, rb.velocity.z);
 
-        if (!(wallLeft && horizontalInput > 0) || !(wallRight && horizontalInput < 0))
+        if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0))
             rb.AddForce(-wallNormal * 100, ForceMode.Force);
 
         if (useGravity)
