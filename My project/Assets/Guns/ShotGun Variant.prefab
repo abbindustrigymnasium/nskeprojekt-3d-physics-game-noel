@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6169754116533601246
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1580752683670875255, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_Name
+      value: ShotGun Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5095673
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.297101
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207932170138482381, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948991961934703066, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948991961934703066, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1580752683670875255, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1658937228179998478}
+    - targetCorrespondingSourceObject: {fileID: 1580752683670875255, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4551544559823124954}
+    - targetCorrespondingSourceObject: {fileID: 1580752683670875255, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4752966106774039866}
+  m_SourcePrefab: {fileID: 100100000, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+--- !u!114 &3245456567177487003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8688977651851845957, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+  m_PrefabInstance: {fileID: 6169754116533601246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643396616279027625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd99f370cc2a186458791013ae888431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4643396616279027625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1580752683670875255, guid: cff6d4adb9ca15847bd0ff0bd47e7972, type: 3}
+  m_PrefabInstance: {fileID: 6169754116533601246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1658937228179998478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643396616279027625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa9abcf86ba54147bf55bba48c26307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunScript: {fileID: 3245456567177487003}
+  rb: {fileID: 4752966106774039866}
+  coll: {fileID: 4551544559823124954}
+  player: {fileID: 0}
+  gunContainer: {fileID: 0}
+  fpsCam: {fileID: 0}
+  pickUpRange: 4
+  dropForwardForce: 10
+  dropUpwardForce: 5
+  equipped: 0
+--- !u!65 &4551544559823124954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643396616279027625}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.575772, y: 0.28711843, z: 0.06059552}
+  m_Center: {x: 0.15778351, y: -0.04859481, z: -0.00007174071}
+--- !u!54 &4752966106774039866
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4643396616279027625}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 2
+  m_Constraints: 0
+  m_CollisionDetection: 3

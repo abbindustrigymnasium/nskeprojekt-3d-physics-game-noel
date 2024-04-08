@@ -21,15 +21,15 @@ public class PlayerCam : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         // PLAYER PANNING CONTROLLER
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        yRotation += mouseX; // mouseX roterar runt en axel som ligger horizontelt med spelarens synfält.
+        xRotation -= mouseY; // mouseY roterar runt en axel som går igenom spelaren uppifrån och ner.
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // begränsa räckvidden för att kolla upp och ner så att spelarens synfält inte kan vändas upp och ner.
 
         camHolder.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
