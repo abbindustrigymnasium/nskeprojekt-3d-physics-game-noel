@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2030356222593248503, guid: e4c135e40c18b404ab6636e86b77dcd7, type: 3}
       propertyPath: bounciness
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2030356222593248503, guid: e4c135e40c18b404ab6636e86b77dcd7, type: 3}
       propertyPath: useGravity
@@ -21,12 +21,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2030356222593248503, guid: e4c135e40c18b404ab6636e86b77dcd7, type: 3}
+      propertyPath: explosionForce
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030356222593248503, guid: e4c135e40c18b404ab6636e86b77dcd7, type: 3}
       propertyPath: explosionRange
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2030356222593248503, guid: e4c135e40c18b404ab6636e86b77dcd7, type: 3}
       propertyPath: explosionDamage
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030356222593248503, guid: e4c135e40c18b404ab6636e86b77dcd7, type: 3}
+      propertyPath: _collisionMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030356222593248503, guid: e4c135e40c18b404ab6636e86b77dcd7, type: 3}
+      propertyPath: whatIsEnemies.m_Bits
+      value: 11776
       objectReference: {fileID: 0}
     - target: {fileID: 2589105185876118882, guid: e4c135e40c18b404ab6636e86b77dcd7, type: 3}
       propertyPath: m_Name

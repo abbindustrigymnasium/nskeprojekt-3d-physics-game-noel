@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - Death
+  - Block
+  - Explosive
   layers:
   - Default
   - TransparentFX
@@ -21,9 +24,9 @@ TagManager:
   - whatIsEnemies
   - whatIsBullet
   - whatIsPlayer
-  - 
-  - 
-  - 
+  - whatIsDeath
+  - whatIsGrappable
+  - Post Processing
   - 
   - 
   - 

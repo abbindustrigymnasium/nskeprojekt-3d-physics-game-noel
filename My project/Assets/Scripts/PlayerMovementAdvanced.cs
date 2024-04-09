@@ -44,7 +44,6 @@ public class PlayerMovementAdvanced : MonoBehaviour {
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
-
     public Transform orientation;
 
     float horizontalInput;

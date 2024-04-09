@@ -13,6 +13,7 @@ public class CharacterMovement : MonoBehaviour {
     public float sprintSpeed;
     public float wallRunSpeed;
     public float slideSpeed;
+    public float swingSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -51,6 +52,10 @@ public class CharacterMovement : MonoBehaviour {
 
     public Transform orientation;
 
+    public Vector3 spawnPoint;
+    private int deathLayer;
+
+
     float horizontalInput;
     float verticalInput;
 
@@ -66,6 +71,7 @@ public class CharacterMovement : MonoBehaviour {
         crouching,
         wallRunning,
         grappling,
+        swinging,
         sliding,
         air
     }
@@ -73,6 +79,7 @@ public class CharacterMovement : MonoBehaviour {
     public bool sliding;
     public bool freeze;
     public bool activeGrapple;
+    public bool swinging;
     public bool wallRunning;
 
     private void Start() {
@@ -82,7 +89,8 @@ public class CharacterMovement : MonoBehaviour {
         readyToJump = true;
 
         startYScale = transform.localScale.y;
-
+        spawnPoint = transform.position;
+        Debug.Log(spawnPoint);
     }
 
     private void Update() {
@@ -146,6 +154,12 @@ public class CharacterMovement : MonoBehaviour {
                 desiredMoveSpeed = sprintSpeed;
         }
 
+        // Mode - Swinging
+        else if (swinging) {
+            mState = MovementState.swinging;
+            moveSpeed = swingSpeed;
+        }
+
         // Mode - Freeze
         else if (freeze) {
             mState = MovementState.freeze;
@@ -182,7 +196,7 @@ public class CharacterMovement : MonoBehaviour {
             mState = MovementState.air;
         }
 
-        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > (sprintSpeed - walkSpeed)) {
+        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > (sprintSpeed - walkSpeed+4)) {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLerpMoveSpeed());
         } 
@@ -209,6 +223,7 @@ public class CharacterMovement : MonoBehaviour {
     private void MovePlayer() {
 
         if (activeGrapple) return;
+        if (swinging) return;
 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -283,6 +298,16 @@ public class CharacterMovement : MonoBehaviour {
             ResetRestrictions();
 
             GetComponent<Grappling>().StopGrapple();
+        }
+
+        
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Death") {
+            print("You died");
+            // If so, move the player back to the spawn position
+            transform.position = spawnPoint;
         }
     }
 

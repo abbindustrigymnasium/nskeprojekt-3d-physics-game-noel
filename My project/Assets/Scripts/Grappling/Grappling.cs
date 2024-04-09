@@ -32,9 +32,9 @@ public class Grappling : MonoBehaviour {
         cm = GetComponent<CharacterMovement>();
     }
 
-    private void Awake() {
-        lr = GetComponent<LineRenderer>();
-    }
+    //private void Awake() {
+        //lr = GetComponent<LineRenderer>();
+    //}
 
     private void Update() {
         if (Input.GetKeyDown(grappleKey)) StartGrapple();

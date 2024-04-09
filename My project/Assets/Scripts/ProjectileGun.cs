@@ -26,6 +26,8 @@ public class ProjectileGun : MonoBehaviour
     public Camera fpsCam;
     public Transform attackPoint;
 
+    // public int destroyedBlocks;
+
     // GRAPHICS
     public GameObject muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
@@ -40,13 +42,15 @@ public class ProjectileGun : MonoBehaviour
     private void Awake() {
         bulletsLeft = magSize;
         readyToShoot = true;
-    }
+        // destroyedBlocks = 0;
 
-    private void Update() {
+}
+
+private void Update() {
         MyInput();
 
         if (ammunitionDisplay != null)
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + "/" + magSize / bulletsPerTap);
+            ammunitionDisplay.SetText("Mag:" + bulletsLeft / bulletsPerTap + "/" + magSize / bulletsPerTap + (reloading ? " Reloading..." : "") );     
     }
 
     private void MyInput() {

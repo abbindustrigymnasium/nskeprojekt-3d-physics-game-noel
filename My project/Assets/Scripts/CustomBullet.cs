@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CustomBullet : MonoBehaviour
 {
@@ -17,13 +18,18 @@ public class CustomBullet : MonoBehaviour
 
     public int explosionDamage;
     public float explosionRange;
+    public float explosionForce;
     //Lifetime
     public int maxCollisions;
     public float maxLifetime;
     public bool explodeOnTouch = true;
 
+    [SerializeField] private float _collisionMultiplier;
+
     int collisions;
     PhysicMaterial physics_mat;
+    //public TextMeshProUGUI blocksDestroyed;
+
 
     private void Start() {
         Setup();
@@ -31,19 +37,21 @@ public class CustomBullet : MonoBehaviour
 
     private void Update() {
         //When to explode:
-        if (collisions > maxCollisions) Explode();
+        if (collisions > maxCollisions) Invoke("Delay", 0.02f);
         //Count down lifetime
         maxLifetime -= Time.deltaTime;
-        if (maxLifetime <= 0) Explode();
+        if (maxLifetime <= 0) Invoke("Delay", 0.02f);
+
+        //if (blocksDestroyed != null)
+        //blocksDestroyed.SetText("Blocks Destroyed: " + collisions);
     }
     private void Explode() {
 
         //Instantiate explosion
-        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+        
 
-        Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
 
-        Invoke("Delay", 0.05f);
+        
     }
 
     private void Delay() {
@@ -53,8 +61,31 @@ public class CustomBullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
 
         collisions++;
+        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+        print("Exploded");
+        Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
 
-        if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
+        if ((collision.collider.CompareTag("Enemy") ||  collision.collider.CompareTag("Explosive") || collision.collider.CompareTag("Block")) && explodeOnTouch) {
+
+            foreach (var obj in enemies) {
+                var objRB = obj.GetComponent<Rigidbody>();
+                if (objRB == null) continue;
+
+                objRB.AddExplosionForce(collision.relativeVelocity.magnitude * _collisionMultiplier * explosionForce, collision.contacts[0].point, explosionRange);
+            }
+            
+            Invoke("Delay", 0.02f);
+        }
+        else if (collision.collider.CompareTag("Player")) {
+            foreach (var obj in enemies) {
+                var objRB = obj.GetComponent<Rigidbody>();
+                if (objRB == null) continue;
+
+                objRB.AddExplosionForce(collision.relativeVelocity.magnitude * _collisionMultiplier * explosionForce * 10f, collision.contacts[0].point, explosionRange);
+            }
+
+            Invoke("Delay", 0.02f);
+        }
     }
 
     
